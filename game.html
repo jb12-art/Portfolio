@@ -1,5 +1,5 @@
 <!-- game.html -->
-<!-- The universal page where game player template lives -->
+<!-- The universal page where game template lives -->
 
 <!doctype html>
 <html lang="en">
@@ -12,8 +12,12 @@
 
     <!-- Keeps the website Navbare styling -->
     <link rel="stylesheet" href="styles.css" />
+
     <!-- Game-specific sizing -->
     <link rel="stylesheet" href="src/css/game.css" />
+
+    <!-- GallowGame styling -->
+    <link rel="stylesheet" href="src/css/gallow.css" />
   </head>
   <body>
     <!-- Navigation Bar remains consistent -->
@@ -21,13 +25,20 @@
       <a href="index.html">Home</a>
     </nav>
 
-    <!-- The Game Box -->
+    <!-- The Game Canvas -->
     <main class="game-container">
       <!-- The title will change dynamically based on the game -->
       <h1 id="gameTitle">Loading Game...</h1>
 
+      <!-- Hangman drawing -->
       <!-- The Game Canvas where your JS draws the graphics -->
       <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+      <!-- Virtual keyboard -->
+      <div id="keyboard" class="keyboard"></div>
+
+      <!-- Mobile keyboard -->
+      <button id="restartButton" type="button">Play Again</button>
     </main>
 
     <!-- This script acts as the "console" that insterts the right game cartridge -->
