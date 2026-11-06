@@ -258,6 +258,7 @@ export function initGame(canvas) {
 
   // Initialize canvas game loop
   selectNewWord();
+  setupVirtualKeyboard();
 
   function gameLoop() {
     // Background clean canvas clear
