@@ -23,6 +23,40 @@ export function initGame(canvas) {
   let gameState = 'PLAYING'; // "PLAYING", "WON", "LOST"
 
   // Virtual On-screen keyboard parameters
+  const keys = 'QWERTYUIOPASDFGHJKLZXCVBNM'.split('');
+  const buttonGrid = [];
+  const startKbdY = 460;
+  const keyWidth = 50;
+  const keyHeight = 40;
+  const gap = 8;
+
+  function setupVirtualKeyboard() {
+    buttonGrid.length = 0; // Reset array
+
+    // Row layouts mirroring standard keyboard arrangements
+    const rows = [
+      keys.slice(0, 10), // Q-P
+      keys.slice(10, 19), // A-L
+      keys.slice(19.26), // Z-M
+    ];
+
+    rows.forEach((row, rowIndex) => {
+      const rowWidth = row.length * keyWidth + (row.length - 1) * gap;
+      const startX = (canvas.width - rowWidth) / 2; // Center horizontally
+      const y = startKbdY + rowIndex * (keyHeight + gap);
+
+      row.forEach((char, colIndex) => {
+        const x = startX + colIndex * (keyWidth + gap);
+        buttonGrid.push({
+          char,
+          x,
+          y,
+          w: keyWidth,
+          h: keyHeight,
+        });
+      });
+    });
+  }
 
   // Setup initial word and data structures
   function selectNewWord() {
