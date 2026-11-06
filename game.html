@@ -1,0 +1,36 @@
+<!-- game.html -->
+<!-- The universal page where game player template lives -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/src/image/favicon-32x32.png" type="image/x-icon" />
+
+    <title>Play Game</title>
+
+    <!-- Keeps the website Navbare styling -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Game-specific sizing -->
+    <link rel="stylesheet" href="src/css/game.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar remains consistent -->
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+
+    <!-- The Game Box -->
+    <main class="game-container">
+      <!-- The title will change dynamically based on the game -->
+      <h1 id="gameTitle">Loading Game...</h1>
+
+      <!-- The Game Canvas where your JS draws the graphics -->
+      <canvas id="gameCanvas" width="800" height="600"></canvas>
+    </main>
+
+    <!-- This script acts as the "console" that insterts the right game cartridge -->
+    <script type="module" src="src/launcher.js"></script>
+  </body>
+</html>

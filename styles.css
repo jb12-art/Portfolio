@@ -1,0 +1,98 @@
+/* styles.css */
+/* Main website styling (Navbar, Footer, Layout) */
+
+/* Global styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-color: #0d0211;
+  color: #00ffcc;
+  min-height: #00ffcc;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Retro navigation */
+nav {
+  background-color: #140520;
+  padding: 15px 30px;
+  border-bottom: 3px solid #ff007f;
+  box-shadow: 0 0 15px #ff007f;
+}
+
+nav a {
+  color: #ff007f;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px #ff007f;
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+}
+
+/* Main layout */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow:
+    0 0 10px #ff007f,
+    0 0 20px #ff007f,
+    0 0 40px #ff007f;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.5rem;
+  color: #00ffcc;
+  text-shadow: 0 0 8px rgba(0, 255, 250, 0.6);
+  margin-bottom: 40px;
+}
+
+/* Neon game cards */
+.game-card {
+  display: inline-block;
+  padding: 20px 40px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background: #1a0826;
+  border: 4px solid #00ffcc;
+  border-radius: 8px;
+  box-shadow:
+    0 0 10px #00ffcc,
+    inset 0 0 10px #00ffcc;
+  text-shadow: 0 0 5px #00ffcc;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  color: #0d0211;
+  background: #00ffcc;
+  box-shadow:
+    0 0 30px #00ffcc,
+    0 0 50px #00ffcc;
+  text-shadow: none;
+  transform: scale(1.05);
+}
