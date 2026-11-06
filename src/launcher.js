@@ -1,5 +1,6 @@
 // src/launcher.js
-// This JavaScript file reads the URL parameter (?games=gallow), imports the correct game code dynamically, and starts it up.
+// Game loader
+// This file reads the URL parameter (?games=gallow), imports the correct game code dynamically, and starts it up.
 
 'use strict';
 
