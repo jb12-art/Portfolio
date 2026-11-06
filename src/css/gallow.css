@@ -1,0 +1,53 @@
+/* src/css/gallow.css */
+
+/* Styling */
+
+/* Virtual keyboard */
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 550px;
+  margin-top: 25px;
+}
+
+/* Keyboard buttons */
+.keyboard button {
+  padding: 12px 5px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #140520;
+  color: #00ffcc;
+  border: 2px solid #ff007f;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Mouse interaction */
+.keyboard button:hover {
+  background: #00ffcc;
+  color: #140520;
+}
+
+/* Used letters */
+.keyboard button:disabled {
+  background: #555;
+  color: #aaa;
+  border-color: #777;
+  cursor: not-allowed;
+}
+
+#restartButton {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#restartButton:hover {
+  background: #3ce759;
+}
