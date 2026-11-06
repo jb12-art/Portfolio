@@ -23,6 +23,8 @@ nav {
   padding: 15px 30px;
   border-bottom: 3px solid #ff007f;
   box-shadow: 0 0 15px #ff007f;
+  position: relative;
+  z-index: 10;
 }
 
 nav a {
