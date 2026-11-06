@@ -1,12 +1,21 @@
 // src/games/gallow/GallowGame.js
-// Structuring an individual Game
-// Inside your specific game file, you wrap your game engine inside a function so the launcher.js can trigger it only when requested.
+
+// Game Controller
 
 'use strict';
 
+import {
+  drawGallows,
+  drawHangman,
+  drawGameUI,
+  drawEndScreen,
+} from './gallowDrawing.js';
+
 export function initGame(canvas) {
+  // HTML elements
   const ctx = canvas.getContext('2d');
-  // console.log('Gallow game initialized on canvas.');
+  const keyboard = document.getElementById('keyboard');
+  const restartButton = document.getElementById('restartButton');
 
   // Game configuration & words
   const wordList = [
@@ -16,49 +25,14 @@ export function initGame(canvas) {
     { word: 'PORTFOLIO' },
   ];
 
+  // Game variables
   let currentWord = '';
   let guessedLetters = [];
   let wrongGuesses = 0;
   const maxGuesses = 6;
   let gameState = 'PLAYING'; // "PLAYING", "WON", "LOST"
 
-  // Virtual On-screen keyboard parameters
-  const keys = 'QWERTYUIOPASDFGHJKLZXCVBNM'.split('');
-  const buttonGrid = [];
-  const startKbdY = 460;
-  const keyWidth = 50;
-  const keyHeight = 40;
-  const gap = 8;
-
-  function setupVirtualKeyboard() {
-    buttonGrid.length = 0; // Reset array
-
-    // Row layouts mirroring standard keyboard arrangements
-    const rows = [
-      keys.slice(0, 10), // Q-P
-      keys.slice(10, 19), // A-L
-      keys.slice(19.26), // Z-M
-    ];
-
-    rows.forEach((row, rowIndex) => {
-      const rowWidth = row.length * keyWidth + (row.length - 1) * gap;
-      const startX = (canvas.width - rowWidth) / 2; // Center horizontally
-      const y = startKbdY + rowIndex * (keyHeight + gap);
-
-      row.forEach((char, colIndex) => {
-        const x = startX + colIndex * (keyWidth + gap);
-        buttonGrid.push({
-          char,
-          x,
-          y,
-          w: keyWidth,
-          h: keyHeight,
-        });
-      });
-    });
-  }
-
-  // Setup initial word and data structures
+  // Select a new word and data structure
   function selectNewWord() {
     const pick = wordList[Math.floor(Math.random() * wordList.length)];
     currentWord = pick.word;
@@ -67,175 +41,20 @@ export function initGame(canvas) {
     gameState = 'PLAYING';
   }
 
-  // Draw vector elements for the hanging stage
-  function drawGallows() {
-    ctx.strokeStyle = '#2c3e50';
-    ctx.lineWidth = 5;
-    ctx.lineCap = 'round';
-
-    // Base platform
-    ctx.beginPath();
-    ctx.moveTo(50, 450);
-    ctx.lineTo(250, 450);
-    ctx.stroke();
-    // Vertical pole
-    ctx.beginPath();
-    ctx.moveTo(120, 450);
-    ctx.lineTo(120, 150);
-    ctx.stroke();
-    // Top beam
-    ctx.beginPath();
-    ctx.moveTo(120, 150);
-    ctx.lineTo(220, 150);
-    ctx.stroke();
-    // Hanging rope noose
-    ctx.beginPath();
-    ctx.moveTo(220, 150);
-    ctx.lineTo(220, 190);
-    ctx.stroke();
-  }
-
-  // Iteratively render stick figure parts depending on loss progression
-  function drawHangman() {
-    ctx.strokeStyle = '#e74c3c';
-    ctx.lineWidth = 4;
-
-    if (wrongGuesses > 0) {
-      // Head
-      ctx.beginPath();
-      ctx.arc(220, 210, 20, 0, Math.PI * 2);
-      ctx.stroke();
-    }
-    if (wrongGuesses > 1) {
-      // Torso
-      ctx.beginPath();
-      ctx.moveTo(220, 230);
-      ctx.lineTo(220, 310);
-      ctx.stroke();
-    }
-    if (wrongGuesses > 2) {
-      // Left arm
-      ctx.beginPath();
-      ctx.moveTo(220, 250);
-      ctx.lineTo(190, 280);
-      ctx.stroke();
-    }
-    if (wrongGuesses > 3) {
-      // Right arm
-      ctx.beginPath();
-      ctx.moveTo(220, 250);
-      ctx.lineTo(250, 280);
-      ctx.stroke();
-    }
-    if (wrongGuesses > 4) {
-      // Left leg
-      ctx.beginPath();
-      ctx.moveTo(220, 310);
-      ctx.lineTo(190, 360);
-      ctx.stroke();
-    }
-    if (wrongGuesses > 5) {
-      // Right leg
-      ctx.beginPath();
-      ctx.moveTo(220, 310);
-      ctx.lineTo(250, 360);
-      ctx.stroke();
-    }
-  }
-
-  // UI HUD and Text layout positions
-  function drawGameUI() {
-    // Render hidden mystery slots
-    ctx.font = 'bold 32px sans-serif';
-    ctx.fillStyle = '#2c3e50';
-    ctx.textAlign = 'left';
-
-    let startX = 350;
-    let startY = 220;
-
-    for (let i = 0; i < currentWord.length; i++) {
-      let char = currentWord[i];
-      if (guessedLetters.includes(char)) {
-        ctx.fillText(char, startX + i * 45, startY);
-      } else {
-        ctx.fillText('_', startX + i * 45, startY);
-      }
-    }
-
-    // Render clues & instructions
-    ctx.font = 'italic 18px sans-serif';
-    ctx.fillStyle = '#7f8c8d';
-
-    ctx.font = 'bold 20px sans-serif';
-    ctx.fillStyle = '#c0392b';
-    ctx.fillText(`Strikes: ${wrongGuesses} / ${maxGuesses}`, 350, 330);
-
-    // Render letters logged already
-    ctx.font = '16px sans-serif';
-    ctx.fillStyle = '#34495e';
-    ctx.fillText(`Letters Guessed: ${guessedLetters.join(',')}`, 350, 380);
-
-    ctx.fillStyle = '#95a5a6';
-    ctx.font = '14px sans-serif';
-    ctx.fillText('Type any letter on your keybord to play', 350, 400);
-  }
-
-  function drawEndScreen() {
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.textAlign = 'center';
-    if (gameState === 'WON') {
-      ctx.fillStyle = '#27ae60';
-      ctx.font = 'bold 45px sans-serif';
-      ctx.fillText(
-        'Victory! You Escaped the Gallow.',
-        canvas.width / 2,
-        canvas.height / 2 - 20,
-      );
-    } else {
-      ctx.fillStyle = '#c0392b';
-      ctx.font = 'bold 45px sans-serif';
-      ctx.fillText('Game Over!', canvas.width / 2, canvas.height / 2 - 40);
-      ctx.fillStyle = '#2c3e50';
-      ctx.font = '24px sans-serif';
-      ctx.fillText(
-        `The word was: ${currentWord}`,
-        canvas.width / 2,
-        canvas.height / 2 + 10,
-      );
-    }
-
-    ctx.fillStyle = '#34495e';
-    ctx.font = '20px sans-serif';
-    ctx.fillText(
-      "Press 'ENTER' to play again",
-      canvas.width / 2,
-      canvas.height / 2 + 80,
-    );
-  }
-
-  // Handle event input logic
-  function handleInput(e) {
-    const key = e.key.toUpperCase();
-
+  // Guess a letter
+  function guessLetter(letter) {
     if (gameState !== 'PLAYING') {
-      if (key === 'ENTER') {
-        selectNewWord();
-      }
       return;
     }
 
-    // Ensure keystroke is an aplha letter and hasn't been chosen yet
-    if (key >= 'A' && key <= 'Å' && key.length === 1) {
-      if (!guessedLetters.includes(key)) {
-        guessedLetters.push(key);
+    if (!guessedLetters.includes(letter)) {
+      guessedLetters.push(letter);
 
-        if (!currentWord.includes(key)) {
-          wrongGuesses++;
-        }
-        checkStatus();
+      if (!currentWord.includes(letter)) {
+        wrongGuesses++;
       }
+
+      checkStatus();
     }
   }
 
@@ -253,11 +72,64 @@ export function initGame(canvas) {
     }
   }
 
-  // Setup listener cleanup bindings
+  // HTML virtual keyboard
+  function setupVirtualKeyboard() {
+    keyboard.innerHTML = '';
+
+    const keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅÖÄ'.split('');
+    keys.forEach((letter) => {
+      const button = document.createElement('button');
+
+      button.textContent = letter;
+      button.addEventListener('click', () => {
+        guessLetter(letter);
+
+        button.disabled = true;
+      });
+      keyboard.appendChild(button);
+    });
+  }
+
+  // Physical keyboard input
+  function handleInput(e) {
+    const key = e.key.toUpperCase();
+
+    // Restart game
+    if (gameState !== 'PLAYING' && key === 'ENTER') {
+      selectNewWord();
+      setupVirtualKeyboard();
+
+      return;
+    }
+
+    // Only accept A-Z English version
+    if (/^[A-Z]$/.test(key)) {
+      guessLetter(key);
+
+      // Update virtual keyboard
+      const buttons = keyboard.querySelectorAll('button');
+
+      buttons.forEach((button) => {
+        if (button.textContent === key) {
+          button.disabled = true;
+        }
+      });
+    }
+  }
+
+  // Restart button
+  restartButton.addEventListener('click', () => {
+    selectNewWord();
+    setupVirtualKeyboard();
+  });
+
+  //
+  // Start Physical keyboard listener
   window.addEventListener('keydown', handleInput);
 
-  // Initialize canvas game loop
+  // Start game
   selectNewWord();
+  // Create virtual keyboard
   setupVirtualKeyboard();
 
   function gameLoop() {
@@ -265,12 +137,12 @@ export function initGame(canvas) {
     ctx.fillStyle = '#f8f9fa';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    drawGallows();
-    drawHangman();
-    drawGameUI();
+    drawGallows(ctx);
+    drawHangman(ctx, wrongGuesses);
+    drawGameUI(ctx, currentWord, guessedLetters, wrongGuesses, maxGuesses);
 
     if (gameState !== 'PLAYING') {
-      drawEndScreen();
+      drawEndScreen(ctx, canvas, gameState, currentWord);
     }
 
     requestAnimationFrame(gameLoop);
