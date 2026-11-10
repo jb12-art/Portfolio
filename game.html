@@ -28,17 +28,49 @@
     <!-- The Game Canvas -->
     <main class="game-container">
       <!-- The title will change dynamically based on the game -->
-      <h1 id="gameTitle">Loading Game...</h1>
+      <h1 id="gameTitle">The Gallow</h1>
 
-      <!-- Hangman drawing -->
-      <!-- The Game Canvas where your JS draws the graphics -->
-      <canvas id="gameCanvas" width="800" height="600"></canvas>
+      <!-- Game settings -->
+      <section id="gameSettings" class="game-settings">
+        <h2>Game Settings</h2>
 
-      <!-- Virtual keyboard -->
-      <div id="keyboard" class="keyboard"></div>
+        <!-- Choose language -->
+        <label for="languageSelect">Choose Language</label>
 
-      <!-- Mobile keyboard -->
-      <button id="restartButton" type="button">Play Again</button>
+        <select id="languageSelect">
+          <option value="en">🇬🇧 English</option>
+          <option value="no">🇳🇴 Norsk</option>
+          <option value="fi">🇫🇮 Suomi</option>
+        </select>
+
+        <!-- Choose genre -->
+        <label for="genreSelect">Choose Genre</label>
+
+        <select id="genreSelect">
+          <option value="animals">Animals</option>
+          <option value="food">Food</option>
+          <option value="countries">Countries</option>
+          <option value="technology">Technology</option>
+          <option value="nature">Nature</option>
+          <option value="sports">Sports</option>
+        </select>
+
+        <!-- Start game -->
+        <button id="startButton" type="button">Start Game</button>
+      </section>
+
+      <!-- Game area -->
+      <section id="gameArea" hidden>
+        <!-- Hangman drawing -->
+        <!-- The Game Canvas where your JS draws the graphics -->
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+        <!-- Virtual keyboard -->
+        <div id="keyboard" class="keyboard"></div>
+
+        <!-- Mobile keyboard -->
+        <button id="restartButton" type="button">Play Again</button>
+      </section>
     </main>
 
     <!-- This script acts as the "console" that insterts the right game cartridge -->
