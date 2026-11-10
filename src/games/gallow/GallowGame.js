@@ -25,14 +25,6 @@ export function initGame(canvas) {
   const languageSelect = document.getElementById('languageSelect');
   const genreSelect = document.getElementById('genreSelect');
 
-  // Game configuration & words
-  const wordList = [
-    { word: 'JAVASCRIPT' },
-    { word: 'ARCADE' },
-    { word: 'CANVAS' },
-    { word: 'PORTFOLIO' },
-  ];
-
   // Game variables
   let currentWord = '';
   let guessedLetters = [];
