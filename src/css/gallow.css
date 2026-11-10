@@ -2,19 +2,84 @@
 
 /* Styling */
 
-/* Virtual keyboard */
-.keyboard {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 8px;
+/* Game settings */
+
+.game-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  max-width: 550px;
-  margin-top: 25px;
+  max-width: 400px;
+  gap: 12px;
+  padding: 25px;
+  background: #140520;
+  border: 2px solid #ff007f;
+  border-radius: 10px;
 }
 
-/* Keyboard buttons */
+.game-settings h2 {
+  color: #00ffcc;
+  margin-bottom: 15px;
+}
+
+.game-settings label {
+  width: 100%;
+  color: #fff;
+}
+
+.game-settings select {
+  padding: 12px;
+  font-size: 16px;
+  color: black;
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+/* General game buttons */
+
+#startButton,
+#restartButton {
+  padding: 12px 25px;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: #c0392b;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#startButton:hover,
+#restartButton:hover,
+.keyboard button:hover {
+  background: #00ffcc;
+  color: #140520;
+}
+
+/* Virtual keyboard */
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 5px;
+}
+
 .keyboard button {
-  padding: 12px 5px;
+  flex: 1;
+  min-width: 0;
+  padding: 14px 14px;
   font-size: 18px;
   font-weight: bold;
   background: #140520;
@@ -22,12 +87,6 @@
   border: 2px solid #ff007f;
   border-radius: 6px;
   cursor: pointer;
-}
-
-/* Mouse interaction */
-.keyboard button:hover {
-  background: #00ffcc;
-  color: #140520;
 }
 
 /* Used letters */
@@ -38,16 +97,39 @@
   cursor: not-allowed;
 }
 
-#restartButton {
-  margin-top: 20px;
-  padding: 12px 30px;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+.keyboard button:hover:not(:disabled) {
+  background: #00ffcc;
+  color: #140520;
 }
 
-#restartButton:hover {
-  background: #3ce759;
+/* Hidden elements */
+[hidden] {
+  display: none !important;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .game-settings {
+    padding: 20px;
+  }
+
+  .keyboard {
+    gap: 6px;
+  }
+
+  .keyboard-row {
+    gap: 4px;
+  }
+
+  .keyboard button {
+    padding: 13px 1px;
+    border-width: 1px;
+  }
+
+  #startButton,
+  #restartButton {
+    width: 100%;
+    max-width: 300px;
+  }
 }
