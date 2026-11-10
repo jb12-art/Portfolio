@@ -88,8 +88,9 @@ export function drawGameUI(
   guessedLetters,
   wrongGuesses,
   maxGuesses,
+  labels,
 ) {
-  // Render hidden mystery slots
+  // Render hidden word
   ctx.font = 'bold 32px sans-serif';
   ctx.fillStyle = '#2c3e50';
   ctx.textAlign = 'left';
@@ -98,7 +99,7 @@ export function drawGameUI(
   let startY = 220;
 
   for (let i = 0; i < currentWord.length; i++) {
-    let char = currentWord[i];
+    const char = currentWord[i];
     if (guessedLetters.includes(char)) {
       ctx.fillText(char, startX + i * 45, startY);
     } else {
@@ -106,50 +107,45 @@ export function drawGameUI(
     }
   }
 
-  // Render clues & instructions
+  // Strikes, clues & instructions
   ctx.font = 'italic 18px sans-serif';
   ctx.fillStyle = '#7f8c8d';
 
   ctx.font = 'bold 20px sans-serif';
   ctx.fillStyle = '#c0392b';
-  ctx.fillText(`Strikes: ${wrongGuesses} / ${maxGuesses}`, 350, 330);
+  ctx.fillText(`${labels.strikes}: ${wrongGuesses} / ${maxGuesses}`, 350, 330);
 
-  // Render letters logged already
+  // Guessed letters
   ctx.font = '16px sans-serif';
   ctx.fillStyle = '#34495e';
-  ctx.fillText(`Letters Guessed: ${guessedLetters.join(',')}`, 350, 380);
+  ctx.fillText(`${labels.guessed}: ${guessedLetters.join(',')}`, 350, 380);
 
-  ctx.fillStyle = '#95a5a6';
+  // Instructions
   ctx.font = '14px sans-serif';
-  ctx.fillText(
-    'Type any letter on your keybord/ display or use a pc mouse to play',
-    350,
-    400,
-  );
+  ctx.fillStyle = '#95a5a6';
+  ctx.fillText(labels.instruction, 350, 400);
 }
 
 // End screen
-export function drawEndScreen(ctx, canvas, gameState, currentWord) {
+export function drawEndScreen(ctx, canvas, gameState, currentWord, labels) {
   ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.textAlign = 'center';
+
   if (gameState === 'WON') {
     ctx.fillStyle = '#27ae60';
     ctx.font = 'bold 45px sans-serif';
-    ctx.fillText(
-      'You Escaped the Gallow.',
-      canvas.width / 2,
-      canvas.height / 2 - 20,
-    );
+    ctx.fillText(labels.won, canvas.width / 2, canvas.height / 2 - 20);
   } else {
     ctx.fillStyle = '#c0392b';
     ctx.font = 'bold 45px sans-serif';
-    ctx.fillText('Game Over!', canvas.width / 2, canvas.height / 2 - 40);
+    ctx.fillText(labels.lost, canvas.width / 2, canvas.height / 2 - 40);
+
     ctx.fillStyle = '#2c3e50';
     ctx.font = '24px sans-serif';
     ctx.fillText(
-      `The word was: ${currentWord}`,
+      `${labels.answer}: ${currentWord}`,
       canvas.width / 2,
       canvas.height / 2 + 10,
     );
@@ -157,9 +153,5 @@ export function drawEndScreen(ctx, canvas, gameState, currentWord) {
 
   ctx.fillStyle = '#34495e';
   ctx.font = '20px sans-serif';
-  ctx.fillText(
-    "Press 'ENTER' to play again or click the button",
-    canvas.width / 2,
-    canvas.height / 2 + 80,
-  );
+  ctx.fillText(labels.restart, canvas.width / 2, canvas.height / 2 + 80);
 }
