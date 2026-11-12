@@ -2,6 +2,7 @@
 /* Main website styling (Navbar, Footer, Layout) */
 
 /* Global styling */
+
 * {
   margin: 0;
   padding: 0;
@@ -17,54 +18,29 @@ body {
   flex-direction: column;
 }
 
-/* Retro navigation */
-nav {
-  background-color: #140520;
-  padding: 15px 30px;
-  border-bottom: 3px solid #ff007f;
-  box-shadow: 0 0 15px #ff007f;
-  position: relative;
-  z-index: 10;
-}
-
-nav a {
-  color: #ff007f;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-shadow: 0 0 5px #ff007f;
-  transition: color 0.3s;
-}
-
-nav a:hover,
-nav a.active {
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc;
-}
-
 /* Main layout */
 main {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  width: 100%;
+  padding: clamp(20px, 5vw, 40px);
   text-align: center;
 }
 
-h1 {
-  font-size: 3.5rem;
+.h1-index {
+  font-size: clamp(2.25rem, 6vw, 3rem);
   color: #fff;
   text-shadow:
     0 0 10px #ff007f,
     0 0 20px #ff007f,
     0 0 40px #ff007f;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 
-p {
-  font-size: 1.5rem;
+.h2-gametitle-section {
+  font-size: clamp(1.3rem, 4vw, 1.5em);
   color: #00ffcc;
   text-shadow: 0 0 8px rgba(0, 255, 250, 0.6);
   margin-bottom: 40px;
