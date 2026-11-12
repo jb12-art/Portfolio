@@ -6,6 +6,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- desktop browser favicon -->
     <link
       rel="icon"
@@ -26,22 +27,35 @@
       href="./src/image/favicon/android-chrome-192x192.png"
     />
 
-    <title>Play Game</title>
-
-    <!-- Keeps the website Navbare styling -->
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
 
+    <!-- Logo styling -->
+    <link rel="stylesheet" href="src/css/logo.css" />
+
+    <!-- Navigation styling -->
+    <link rel="stylesheet" href="src/css/navigation.css" />
+
+    <!-- Logo JavaScript -->
+    <script src="src/js/logo.js" defer></script>
+
+    <!-- Navigation JavaScript -->
+    <script src="src/js/navigation.js" defer></script>
+
+    <!-- GAME -->
     <!-- Game-specific sizing -->
     <link rel="stylesheet" href="src/css/game.css" />
-
     <!-- GallowGame styling -->
     <link rel="stylesheet" href="src/css/gallow.css" />
+
+    <title>Play Game</title>
   </head>
   <body>
-    <!-- Navigation Bar remains consistent -->
-    <nav>
-      <a href="index.html">Home</a>
-    </nav>
+    <!-- Shared logo -->
+    <header class="logo"></header>
+
+    <!-- Shared navigation -->
+    <nav class="nav"></nav>
 
     <!-- The Game Canvas -->
     <main class="game-container">
