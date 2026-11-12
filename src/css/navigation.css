@@ -1,0 +1,57 @@
+/* src/css/navigation.css */
+
+/* Retro navigation */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: clamp(12px, 3vw, 30px);
+  margin-top: 6px;
+  padding: 15px 30px;
+
+  background-color: #140520;
+  border-bottom: 3px solid #ff007f;
+  /* border-top: 3px solid #ff007f; */
+  /* border-block: 3px solid #ff007f; */
+  box-shadow: 0 0 15px #ff007f;
+  /* box-shadow: 0 4px 15px -4px #ff007f; */
+  position: relative;
+  z-index: 10;
+}
+
+/* Navigation links */
+nav a {
+  color: #ff007f;
+  text-decoration: none;
+  font-weight: bold;
+
+  font-size: clamp(1rem, 2vw, 1.2rem);
+
+  text-shadow: 0 0 5px #ff007f;
+  transition: color 0.3s;
+}
+
+/* Hover and active page */
+nav a:hover,
+nav a.active {
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+}
+
+/* Mobile screen */
+@media (max-width: 600px) {
+  .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 15px;
+    padding: 12px 10px;
+    margin-top: 6px;
+  }
+
+  .nav a {
+    font-size: 1rem;
+    padding: 8px;
+  }
+}
