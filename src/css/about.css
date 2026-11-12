@@ -1,0 +1,25 @@
+/* src/css/about.css */
+
+.h1-about {
+  font-size: 28px;
+}
+
+.h2-about {
+  font-size: 20px;
+}
+
+.h3-about {
+  font-size: 18px;
+}
+
+.p {
+  font-size: 16px;
+}
+
+.h1-about,
+.h2-about,
+.h3-about,
+.p-about {
+  color: white;
+  margin-bottom: 10px;
+}
