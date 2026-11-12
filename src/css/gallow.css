@@ -1,6 +1,15 @@
 /* src/css/gallow.css */
 
 /* Styling */
+h1 {
+  font-size: clamp(2.25rem, 6vw, 3rem);
+  color: #fff;
+  text-shadow:
+    0 0 10px #ff007f,
+    0 0 20px #ff007f,
+    0 0 40px #ff007f;
+  margin-bottom: 50px;
+}
 
 /* Game settings */
 
