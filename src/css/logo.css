@@ -1,1 +1,274 @@
 /* src/css/logo.css */
+
+/* Logo container */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2px;
+}
+
+/* Storefront next to each other */
+.store-logo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  max-width: 1460px;
+  gap: 10px;
+}
+
+/* street lights between the stores, lights up */
+/* .street-lamp {
+  background-color: yellow;
+  padding: 5px 5px;
+  border-radius: 50%;
+} */
+
+/* Individual store */
+.store {
+  flex: 1 1 200px;
+  min-width: 0;
+  max-width: 200px;
+  aspect-ratio: 10 / 7;
+  position: relative;
+}
+
+/* Store roof */
+.roof {
+  height: 18%;
+  background-color: #333;
+  border: 2px solid #111;
+}
+
+/* Awning */
+.awning {
+  height: 13%;
+
+  background: repeating-linear-gradient(
+    90deg,
+    #555 0px,
+    #555 12px,
+    #888 12px,
+    #888 24px
+  );
+  border: 2px solid #222;
+}
+
+/* Store front */
+.store-front {
+  height: 69%;
+  position: relative;
+  background-color: #333;
+  border: 2px solid #111;
+}
+
+/* My name */
+.my-name {
+  position: absolute;
+  color: #fff;
+  font-family: 'Molle', cursive;
+  font-style: italic;
+  font-weight: 400;
+
+  font-size: clamp(7px, 1.4vw, 20px);
+
+  margin: 0;
+  top: -43px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  /* Rainbow neon */
+  text-shadow:
+    0 0 5px #ffffff,
+    0 0 10px #ff00de,
+    0 0 20px #ff00de,
+    0 0 40px #ff00de;
+  /* rotate the color wheel / and neon flicker */
+  animation:
+    rainbow-glow 20s linear infinite,
+    neon-flicker 8s infinite;
+}
+/* Rainbow-glow */
+@keyframes rainbow-glow {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Simulates neon flicker */
+@keyframes neon-flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+  }
+  20%,
+  24%,
+  55% {
+    opacity: 0.75;
+  }
+}
+
+/* Shop sign */
+.shop-sign {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: clamp(5px, 0.7vw, 10px);
+  font-weight: bold;
+  color: white;
+  background-color: #222;
+  padding: 2px;
+  white-space: nowrap;
+}
+
+/* Store window */
+.window {
+  position: absolute;
+  left: 4%;
+  top: 38%;
+
+  width: 30%;
+  height: 45%;
+  background-color: #111;
+  border: 2px solid #555;
+}
+
+/* Store door */
+.door {
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+
+  width: 22%;
+  height: 62%;
+  background-color: #222;
+  border: 2px solid #111;
+}
+
+/* Closed stores */
+.store.closed .roof {
+  background-color: #222;
+}
+
+.store.closed .awning {
+  background: repeating-linear-gradient(
+    90deg,
+    #181818 0px,
+    #181818 12px,
+    #292929 12px,
+    #292929 24px
+  );
+}
+
+.store.closed .store-front {
+  background-color: #222;
+}
+
+.store.closed .window {
+  background-color: #080808;
+}
+
+.store.closed .door {
+  background-color: #111;
+}
+
+/* Open store */
+.store.open .roof {
+  background-color: #0d0211;
+}
+
+.store.open .awning {
+  background: repeating-linear-gradient(
+    90deg,
+    #f4c66a 0px,
+    #f4c66a 12px,
+    #fff0c2 12px,
+    #fff0c2 24px
+  );
+}
+
+.store.open .store-front {
+  background-color: #0d0211;
+}
+
+.store.open .shop-sign {
+  background-color: #0d0211;
+  color: white;
+
+  text-shadow:
+    0 0 10px #ff007f,
+    0 0 20px #ff007f,
+    0 0 40px #ff007f;
+
+  border-radius: 4px;
+  /* left: 83%; */
+}
+
+.store.open .window {
+  background-color: #ffe7a3;
+  box-shadow: 0 0 12px #ffcf57;
+}
+
+.store.open .door {
+  background-color: #f4c66a;
+}
+
+/* Mobile screen */
+
+@media (max-width: 600px) {
+  /* Logo container */
+  .logo {
+    padding: 2px;
+  }
+
+  /* Storefront next to each other */
+  .store-logo {
+    gap: 2px;
+  }
+
+  /* Hide four storefronts */
+  .hide-on-mobile {
+    display: none;
+  }
+
+  /* Visible stores fill the space */
+  .store {
+    flex: 1 1 0;
+    max-width: 200px;
+  }
+
+  /* Small borders */
+  .roof,
+  .awning,
+  .store-front,
+  .window,
+  .door {
+    border-width: 1px;
+  }
+
+  .my-name {
+    font-size: clamp(8px, 2.8vw, 12px);
+    top: -22px;
+  }
+}
+
+/* Reduce animation for users who prefer lett motion */
+@media (prefers-reduced-motion: reduce) {
+  .my-name {
+    animation: none;
+  }
+}
