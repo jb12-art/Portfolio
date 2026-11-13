@@ -72,13 +72,13 @@
   font-style: italic;
   font-weight: 400;
 
-  font-size: clamp(7px, 1.4vw, 20px);
+  font-size: clamp(12px, 1.4vw, 20px);
 
-  margin: 0;
-  top: -43px;
+  top: -2.2em;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
+  line-height: 1;
 
   /* Rainbow neon */
   text-shadow:
@@ -86,6 +86,7 @@
     0 0 10px #ff00de,
     0 0 20px #ff00de,
     0 0 40px #ff00de;
+
   /* rotate the color wheel / and neon flicker */
   animation:
     rainbow-glow 20s linear infinite,
@@ -261,13 +262,12 @@
   }
 
   .my-name {
-    font-size: clamp(8px, 2.8vw, 12px);
-    top: -22px;
-    line-height: 1;
+    font-size: clamp(9px, 3vw, 13px);
+    top: -2.2em;
   }
 }
 
-/* Reduce animation for users who prefer lett motion */
+/* Reduce animation for users who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
   .my-name {
     animation: none;
