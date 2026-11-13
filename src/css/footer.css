@@ -1,0 +1,20 @@
+/* src/css/footer.css */
+
+.footer {
+  padding: 2rem 1rem;
+  background: #140520;
+  color: white;
+  text-align: center;
+  border-top: 3px solid #ff007f;
+  border-bottom: 3px solid #ff007f;
+  box-shadow: 0 0 15px #ff007f;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
