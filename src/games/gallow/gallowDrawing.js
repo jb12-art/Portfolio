@@ -2,6 +2,8 @@
 
 // Drawing
 
+'use strict';
+
 // Draw vector elements for the hanging stage
 export function drawGallows(ctx) {
   ctx.strokeStyle = '#2c3e50';

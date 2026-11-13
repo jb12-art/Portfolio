@@ -4,6 +4,8 @@
 
 // Word database for hangman
 
+'use strict';
+
 export const gameData = {
   // English
   en: {
