@@ -67,10 +67,10 @@ logo.innerHTML = `
   <div class="store open">
 
     <div class="roof"></div>
+    <div class="my-name">Jørgen Bjørnethun</div>
     <div class="awning"></div>
 
     <div class="store-front">
-      <div class="my-name">Jørgen Bjørnethun</div>
       <div class="shop-sign">OPEN</div>
       <div class="window"></div>
       <div class="door"></div>
