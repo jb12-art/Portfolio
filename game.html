@@ -95,15 +95,18 @@
 
       <!-- Game area -->
       <section id="gameArea" hidden>
-        <!-- Hangman drawing -->
-        <!-- The Game Canvas where your JS draws the graphics -->
-        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <!-- Canvas wrapper -->
+        <div class="canvas-container">
+          <!-- Hangman drawing -->
+          <!-- The Game Canvas where your JS draws the graphics -->
+          <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+          <!-- Play again button -->
+          <button id="restartButton" type="button">Play Again</button>
+        </div>
 
         <!-- Virtual keyboard -->
         <div id="keyboard" class="keyboard"></div>
-
-        <!-- Mobile keyboard -->
-        <button id="restartButton" type="button">Play Again</button>
       </section>
     </main>
 
