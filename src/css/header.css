@@ -9,6 +9,13 @@
   padding: 2px;
 }
 
+/* street lights between the stores, lights up */
+/* .street-lamp {
+  background-color: yellow;
+  padding: 5px 5px;
+  border-radius: 50%;
+} */
+
 /* Storefront next to each other */
 .store-logo {
   display: flex;
@@ -18,13 +25,6 @@
   max-width: 1460px;
   gap: 10px;
 }
-
-/* street lights between the stores, lights up */
-/* .street-lamp {
-  background-color: yellow;
-  padding: 5px 5px;
-  border-radius: 50%;
-} */
 
 /* Individual store */
 .store {
@@ -197,10 +197,10 @@
 .store.open .awning {
   background: repeating-linear-gradient(
     90deg,
-    #f4c66a 0px,
-    #f4c66a 12px,
-    #fff0c2 12px,
-    #fff0c2 24px
+    #5bfbe4 0px,
+    #5b6cfb 12px,
+    #da89ff 12px,
+    #ffc2d9 24px
   );
 }
 
