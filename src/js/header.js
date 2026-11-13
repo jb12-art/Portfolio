@@ -1,4 +1,4 @@
-// src/js/logo.js
+// src/js/header.js
 
 'use strict';
 
@@ -15,7 +15,7 @@ fontLink.href = protocol + sub + domain + path + query;
 document.head.appendChild(fontLink);
 
 // Find the logo/header container
-const logo = document.querySelector('.logo');
+const logo = document.querySelector('.header');
 
 // Create the storefronts
 logo.innerHTML = `

@@ -1,7 +1,7 @@
-/* src/css/logo.css */
+/* src/css/header.css */
 
 /* Logo container */
-.logo {
+.header {
   display: flex;
   justify-content: center;
   align-items: center;
