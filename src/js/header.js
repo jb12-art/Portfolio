@@ -75,7 +75,12 @@ logo.innerHTML = `
     <div class="store-front">
       <div class="shop-sign">OPEN</div>
       <div class="window"></div>
-      <div class="door"></div>
+
+      <div class="door">
+        <div class="door-frame"></div>
+      </div>
+      
+
     </div>
   </div>
 
