@@ -1,5 +1,34 @@
 /* src/css/gallow.css */
 
+/* Canvas */
+
+/* Need to change canvas color two places. But three needs to be in place. 2 in gallow.css/ 1 in GallowGame.js */
+/* 1/3 */
+:root {
+  --canvas-background: #dcdbdb;
+}
+
+.canvas-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Need to change canvas color three places. 2 in gallow.css/ 1 in GallowGame.js */
+/* This can be left alone, it takes the color from :root */
+/* 2/3 */
+#gameCanvas {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  background: var(--canvas-background);
+  border: 4px solid #34495e;
+  border-radius: 8px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+
 /* Styling */
 h1 {
   font-size: clamp(2.25rem, 6vw, 3rem);
@@ -66,21 +95,6 @@ h1 {
   color: #140520;
 }
 
-/* Canvas */
-
-.canvas-container {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-#gameCanvas {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 #restartButton {
   position: absolute;
   top: 63%;
@@ -145,6 +159,10 @@ h1 {
 /* Mobile */
 
 @media (max-width: 600px) {
+  #gameCanvas {
+    border-width: 2px;
+  }
+
   .game-settings {
     padding: 20px;
   }

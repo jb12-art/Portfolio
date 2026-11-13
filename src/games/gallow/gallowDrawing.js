@@ -130,6 +130,7 @@ export function drawGameUI(
 
 // End screen
 export function drawEndScreen(ctx, canvas, gameState, currentWord, labels) {
+  // white transparent overlay when the game end
   ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 

@@ -276,7 +276,9 @@ export function initGame(canvas) {
     }
 
     // Background clear canvas
-    ctx.fillStyle = '#f8f9fa';
+    /* Need to change canvas color three places. 2 in gallow.css/ 1 in GallowGame.js */
+    // 3/3
+    ctx.fillStyle = '#dcdbdb';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Drawing
