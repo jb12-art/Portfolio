@@ -1,5 +1,7 @@
 // src/js/navigation.js
 
+'use strict';
+
 // Navigation container
 const navigation = document.querySelector('.nav');
 
@@ -20,7 +22,9 @@ const links = navigation.querySelectorAll('a');
 
 // Highlight the current page
 links.forEach(function (link) {
-  if (link.getAttribute('href') === currentPage) {
+  const linkPage = link.getAttribute('href').split('?')[0];
+
+  if (linkPage === currentPage) {
     link.classList.add('active');
   }
 });
