@@ -1,0 +1,7 @@
+Copyright (c) 2026 Jørgen A. S. Bjørnethun. All Rights Reserved.
+
+This repository is made public solely for viewing and evaluation by potential employers and clients. 
+
+No permission is granted to copy, modify, distribute, publish, sublicense, or sell any part of this code, design, or content without prior written permission from the copyright holder.
+
+THE SOFTWARE AND CONTENT ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THIS REPOSITORY.
