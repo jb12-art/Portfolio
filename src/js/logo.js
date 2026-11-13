@@ -1,5 +1,7 @@
 // src/js/logo.js
 
+'use strict';
+
 // Automatically load Google Fonts for the logo on every page
 const protocol = 'https://';
 const sub = 'fonts.';
@@ -12,10 +14,10 @@ fontLink.rel = 'stylesheet';
 fontLink.href = protocol + sub + domain + path + query;
 document.head.appendChild(fontLink);
 
-// Find the logo container
+// Find the logo/header container
 const logo = document.querySelector('.logo');
 
-// Create the three storefronts
+// Create the storefronts
 logo.innerHTML = `
 <div class="store-logo" aria-label="Storefront logo">
 
