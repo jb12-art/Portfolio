@@ -240,8 +240,8 @@
 /* Mobile screen */
 
 @media (max-width: 600px) {
-  /* Logo container */
-  .logo {
+  /* header container */
+  .header {
     padding: 2px;
   }
 
