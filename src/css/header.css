@@ -42,28 +42,6 @@
   border: 2px solid #111;
 }
 
-/* Awning */
-.awning {
-  height: 13%;
-
-  background: repeating-linear-gradient(
-    90deg,
-    #555 0px,
-    #555 12px,
-    #888 12px,
-    #888 24px
-  );
-  border: 2px solid #222;
-}
-
-/* Store front */
-.store-front {
-  height: 69%;
-  position: relative;
-  background-color: #333;
-  border: 2px solid #111;
-}
-
 /* My name */
 .my-name {
   position: absolute;
@@ -122,11 +100,34 @@
   }
 }
 
+/* Awning */
+.awning {
+  height: 13%;
+
+  background: repeating-linear-gradient(
+    90deg,
+    #555 0px,
+    #555 12px,
+    #888 12px,
+    #888 24px
+  );
+  border: 2px solid #222;
+}
+
+/* Store front */
+.store-front {
+  height: 69%;
+  position: relative;
+  background-color: #333;
+  border: 2px solid #111;
+}
+
 /* Shop sign */
 .shop-sign {
   position: absolute;
-  top: 4%;
-  left: 50%;
+
+  left: 85%;
+  top: 22%;
   transform: translateX(-50%);
 
   font-size: clamp(5px, 0.7vw, 10px);
@@ -217,7 +218,8 @@
     0 0 40px #ff007f;
 
   border-radius: 4px;
-  /* left: 83%; */
+  left: 85%;
+  top: 22%;
 }
 
 .store.open .window {
