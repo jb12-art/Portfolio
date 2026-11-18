@@ -17,6 +17,25 @@ document.head.appendChild(fontLink);
 // Find the logo/header container
 const logo = document.querySelector('.header');
 
+// Individual fabric stripes for awning
+function makeAwning() {
+  return `
+  <div class="awning">
+    <span class="awning-stripe"></span>
+    <span class="awning-stripe"></span>
+    <span class="awning-stripe"></span>
+    <span class="awning-stripe"></span>
+    <span class="awning-stripe"></span>
+    <span class="awning-stripe"></span>
+    <span class="awning-stripe"></span>
+    <span class="awning-stripe"></span>
+    <span class="awning-stripe"></span>
+    <span class="awning-stripe"></span>
+
+  </div>
+  `;
+}
+
 // Create the storefronts
 logo.innerHTML = `
 <div class="store-logo" aria-label="Storefront logo">
@@ -30,7 +49,7 @@ logo.innerHTML = `
   <div class="store closed hide-on-mobile">
 
     <div class="roof"></div>
-    <div class="awning"></div>
+    ${makeAwning()}
 
     <div class="store-front">
       <div class="shop-sign">CLOSED</div>
@@ -43,7 +62,7 @@ logo.innerHTML = `
    <div class="store closed hide-on-mobile">
 
     <div class="roof"></div>
-    <div class="awning"></div>
+    ${makeAwning()}
 
     <div class="store-front">
       <div class="shop-sign">CLOSED</div>
@@ -56,7 +75,7 @@ logo.innerHTML = `
    <div class="store closed">
 
     <div class="roof"></div>
-    <div class="awning"></div>
+    ${makeAwning()}
 
     <div class="store-front">
       <div class="shop-sign">CLOSED</div>
@@ -70,7 +89,7 @@ logo.innerHTML = `
 
     <div class="roof"></div>
     <div class="my-name">Jørgen Bjørnethun</div>
-    <div class="awning"></div>
+    ${makeAwning()}
 
     <div class="store-front">
       <div class="shop-sign">OPEN</div>
@@ -90,7 +109,7 @@ logo.innerHTML = `
   <div class="store closed">
 
     <div class="roof"></div>
-    <div class="awning"></div>
+    ${makeAwning()}
 
     <div class="store-front">
       <div class="shop-sign">CLOSED</div>
@@ -103,7 +122,7 @@ logo.innerHTML = `
   <div class="store closed hide-on-mobile">
 
     <div class="roof"></div>
-    <div class="awning"></div>
+    ${makeAwning()}
 
     <div class="store-front">
       <div class="shop-sign">CLOSED</div>
@@ -116,7 +135,7 @@ logo.innerHTML = `
    <div class="store closed hide-on-mobile">
 
     <div class="roof"></div>
-    <div class="awning"></div>
+    ${makeAwning()}
 
     <div class="store-front">
       <div class="shop-sign">CLOSED</div>
