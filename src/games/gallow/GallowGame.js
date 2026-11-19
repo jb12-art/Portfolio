@@ -275,11 +275,8 @@ export function initGame(canvas) {
       return;
     }
 
-    // Background clear canvas
-    /* Need to change canvas color three places. 2 in gallow.css/ 1 in GallowGame.js */
-    // 3/3
-    ctx.fillStyle = '#dcdbdb';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    /* Clear the canvas before drawing the next frame */
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Drawing
     drawGallows(ctx);
